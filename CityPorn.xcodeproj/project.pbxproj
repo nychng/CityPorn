@@ -31,6 +31,9 @@
 		2D9C619D18AA085700B31A69 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2D9C619C18AA085700B31A69 /* loading.gif */; };
 		2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */; };
 		2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624418AA0F4800B31A69 /* Security.framework */; };
+		2DACD23918AB2BDE00441BDA /* ImgurCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DACD23818AB2BDE00441BDA /* ImgurCell.m */; };
+		2DACD23C18AB5C6200441BDA /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DACD23B18AB5C6200441BDA /* InfoViewController.m */; };
+		2DACD23E18AB633A00441BDA /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DACD23D18AB633A00441BDA /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,11 @@
 		2D9C619C18AA085700B31A69 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2D9C624418AA0F4800B31A69 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2DACD23718AB2BDE00441BDA /* ImgurCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurCell.h; sourceTree = "<group>"; };
+		2DACD23818AB2BDE00441BDA /* ImgurCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurCell.m; sourceTree = "<group>"; };
+		2DACD23A18AB5C6200441BDA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		2DACD23B18AB5C6200441BDA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		2DACD23D18AB633A00441BDA /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +159,13 @@
 			children = (
 				2D4AED2B18A49B2F00AB62B1 /* AppDelegate.h */,
 				2D4AED2C18A49B2F00AB62B1 /* AppDelegate.m */,
+				2DACD23718AB2BDE00441BDA /* ImgurCell.h */,
+				2DACD23818AB2BDE00441BDA /* ImgurCell.m */,
 				2D4AED2E18A49B2F00AB62B1 /* Main.storyboard */,
 				2D9C618618A8E23500B31A69 /* ImageItem.h */,
 				2D9C618718A8E23600B31A69 /* ImageItem.m */,
+				2DACD23A18AB5C6200441BDA /* InfoViewController.h */,
+				2DACD23B18AB5C6200441BDA /* InfoViewController.m */,
 				2D4AED3118A49B2F00AB62B1 /* MasterViewController.h */,
 				2D4AED3218A49B2F00AB62B1 /* MasterViewController.m */,
 				2D4AED3418A49B2F00AB62B1 /* DetailViewController.h */,
@@ -207,6 +219,7 @@
 		2D9C619518A9FEFE00B31A69 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2DACD23D18AB633A00441BDA /* background.jpg */,
 				2D9C619C18AA085700B31A69 /* loading.gif */,
 			);
 			name = images;
@@ -298,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4AED3818A49B2F00AB62B1 /* Images.xcassets in Resources */,
+				2DACD23E18AB633A00441BDA /* background.jpg in Resources */,
 				2D9C619D18AA085700B31A69 /* loading.gif in Resources */,
 				2D4AED2718A49B2F00AB62B1 /* InfoPlist.strings in Resources */,
 				2D4AED3018A49B2F00AB62B1 /* Main.storyboard in Resources */,
@@ -321,6 +335,8 @@
 			files = (
 				2D4AED2D18A49B2F00AB62B1 /* AppDelegate.m in Sources */,
 				2D4AED3318A49B2F00AB62B1 /* MasterViewController.m in Sources */,
+				2DACD23C18AB5C6200441BDA /* InfoViewController.m in Sources */,
+				2DACD23918AB2BDE00441BDA /* ImgurCell.m in Sources */,
 				2D4AED2918A49B2F00AB62B1 /* main.m in Sources */,
 				2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */,
 				2D9C619818AA02F100B31A69 /* UIImage+animatedGIF.m in Sources */,

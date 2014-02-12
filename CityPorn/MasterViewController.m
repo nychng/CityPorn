@@ -8,11 +8,11 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "InfoViewController.h"
 #import "UIImage+animatedGIF.h"
 #import "ImageItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
-
+#import "ImgurCell.h"
 
 @interface MasterViewController () {
     NSMutableArray *_imageArray;
@@ -68,7 +68,6 @@
                                                                            error:&error];
     NSMutableArray *imgurArray = [[NSMutableArray alloc] init];
     imgurArray = [imageResponse objectForKey:@"data"];
-    NSLog(@"%@",imgurArray);
     [self populateImageArray:imgurArray];
 }
 
@@ -126,45 +125,45 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"Cell";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
-                                                                           forIndexPath:indexPath];
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+    ImgurCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
+                                                                forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[ImgurCell alloc] init];
+    }
     ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
     
-    UIActivityIndicatorView *activityIndicator = (UIActivityIndicatorView *)[cell viewWithTag:200];
-    if (activityIndicator) [activityIndicator removeFromSuperview];
+    UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
+    if (activityIndicator) {
+        [activityIndicator removeFromSuperview];
+    }
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     activityIndicator.hidesWhenStopped = YES;
     activityIndicator.hidden = NO;
-    [activityIndicator startAnimating];
+    //[activityIndicator startAnimating];
     activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
     activityIndicator.tag = 200;
-    [imageView addSubview:activityIndicator];
-    
-    [imageView setImageWithURL:image.url
-              placeholderImage:nil
-                       options:SDWebImageProgressiveDownload
-                      progress:^(NSUInteger receivedSize, long long expectedSize) { [activityIndicator startAnimating]; }
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                         if (image) {
-                             [activityIndicator stopAnimating];
-                             [activityIndicator removeFromSuperview];
-                         }
-                     }];
+        
+    [cell.thumbnailImage addSubview:activityIndicator];
+    [cell.thumbnailImage setImageWithURL:image.url
+                        placeholderImage:nil
+                                 options:indexPath.row == 0 ? SDWebImageProgressiveDownload : 0
+                                progress:^(NSUInteger receivedSize, long long expectedSize) { [activityIndicator startAnimating]; }
+                               completed:^(UIImage *completeImage, NSError *error, SDImageCacheType cacheType) {
+                                   if (completeImage) {
+                                       [activityIndicator stopAnimating];
+                                       [activityIndicator removeFromSuperview];
+                                   }
+                               }];
 
 
     return cell;
 }
 
-- (UIActivityIndicatorView *)activityIndicator:(UICollectionViewCell *)cell
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    activityIndicator.hidesWhenStopped = YES;
-    activityIndicator.hidden = NO;
-    //activityIndicator.center =
-
-    return activityIndicator;
+    //do something
 }
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -175,21 +174,12 @@
         vc.imageIndex = indexPath;
         vc.imageArray = [NSMutableArray arrayWithArray:_imageArray];
     }
+    
+    if ([[segue identifier] isEqualToString:@"showInfo"]) {
+        // do something
+    }
 }
 
-//- (void)configure
-//{
-//    // some stuff
-//    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-//    self.imageOperation = [manager downloadWithURL:[NSURL URLWithString:self.move.image]
-//                                           options:SDWebImageRetryFailed
-//                                          progress:nil
-//                                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-//                                             if (image)
-//                                                 self.moveImageView.image = image;
-//                                         }];
-//
-//}
 
 - (NSString *)getDataFrom:(NSString *)url
 {
