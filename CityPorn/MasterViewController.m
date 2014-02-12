@@ -118,7 +118,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return _imageArray.count;
+    return _imageArray.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -130,40 +130,52 @@
     if (cell == nil) {
         cell = [[ImgurCell alloc] init];
     }
-    ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
-    [image getSmallThumbnailURL];
     
-    UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
-    if (activityIndicator) {
-        [activityIndicator removeFromSuperview];
-    }
-    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    activityIndicator.hidesWhenStopped = YES;
-    activityIndicator.hidden = NO;
-    //[activityIndicator startAnimating];
-    activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
-    activityIndicator.tag = 200;
+    if (indexPath.item < _imageArray.count) {
+        ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
+        [image getSmallThumbnailURL];
         
-    [cell.thumbnailImage addSubview:activityIndicator];
-    [cell.thumbnailImage setImageWithURL:[image getSmallThumbnailURL]
-                        placeholderImage:nil
-                                 options:indexPath.row == 0 ? SDWebImageProgressiveDownload : 0
-                                progress:^(NSUInteger receivedSize, long long expectedSize) { [activityIndicator startAnimating]; }
-                               completed:^(UIImage *completeImage, NSError *error, SDImageCacheType cacheType) {
-                                   if (completeImage) {
-                                       [activityIndicator stopAnimating];
-                                       [activityIndicator removeFromSuperview];
-                                   }
-                               }];
-
+        UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
+        if (activityIndicator) {
+            [activityIndicator removeFromSuperview];
+        }
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        activityIndicator.hidesWhenStopped = YES;
+        activityIndicator.hidden = NO;
+        //[activityIndicator startAnimating];
+        activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
+        activityIndicator.tag = 200;
+        
+        [cell.thumbnailImage addSubview:activityIndicator];
+        [cell.thumbnailImage setImageWithURL:[image getSmallThumbnailURL]
+                            placeholderImage:nil
+                                     options:SDWebImageProgressiveDownload
+                                    progress:^(NSUInteger receivedSize, long long expectedSize) {
+                                        if (!activityIndicator) {
+                                            [activityIndicator startAnimating];
+                                        }
+                                    }
+                                   completed:^(UIImage *completeImage, NSError *error, SDImageCacheType cacheType) {
+                                       if (completeImage) {
+                                           [activityIndicator stopAnimating];
+                                           [activityIndicator removeFromSuperview];
+                                       }
+                                   }];
+    } else {
+        UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
+        if (activityIndicator) {
+            [activityIndicator removeFromSuperview];
+        }
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        activityIndicator.hidesWhenStopped = YES;
+        activityIndicator.hidden = NO;
+        //[activityIndicator startAnimating];
+        activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
+        activityIndicator.tag = 200;
+        [cell.thumbnailImage addSubview:activityIndicator];
+    }
     return cell;
 }
-
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
-{
-
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

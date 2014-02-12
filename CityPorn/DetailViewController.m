@@ -31,6 +31,15 @@
     [self loadSelectedImage];
 }
 
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    UICollectionViewCell *cell = [self.collectionView visibleCells][0];
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+    imageView = nil;
+}
+
 - (IBAction)saveButton:(id)sender
 {
     // there should only be 1 visible cell

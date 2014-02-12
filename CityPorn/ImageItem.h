@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSURL *url;
 
-- (NSString *)getSmallThumbnailURL;
+- (NSURL *)getSmallThumbnailURL;
 
 @end

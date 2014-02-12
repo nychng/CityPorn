@@ -15,11 +15,12 @@
     return [NSString stringWithFormat:@"<Name: %@, URL: %@>", self.title, self.url];
 }
 
-- (NSString *)getSmallThumbnailURL
+- (NSURL *)getSmallThumbnailURL
 {
     NSArray *strings = [[self.url absoluteString] componentsSeparatedByString:@".jpg"];
     NSString *thumbnailURL = [strings[0] stringByAppendingString:@"l.jpg"];
-    return thumbnailURL;
+    NSURL *url = [[NSURL alloc] initWithString:thumbnailURL];
+    return url;
 }
 
 @end
