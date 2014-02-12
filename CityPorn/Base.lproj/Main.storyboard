@@ -72,7 +72,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="CityPorn" id="xTk-cG-kEa">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="CTB-na-yEa">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="CTB-na-yEa">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="x4M-b8-MV0">
                                 <rect key="frame" x="282" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

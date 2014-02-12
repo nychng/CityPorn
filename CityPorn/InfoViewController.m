@@ -39,7 +39,6 @@
 
 - (IBAction)close
 {
-    NSLog(@"hel;lo");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

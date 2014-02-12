@@ -131,6 +131,7 @@
         cell = [[ImgurCell alloc] init];
     }
     ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
+    [image getSmallThumbnailURL];
     
     UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
     if (activityIndicator) {
@@ -144,7 +145,7 @@
     activityIndicator.tag = 200;
         
     [cell.thumbnailImage addSubview:activityIndicator];
-    [cell.thumbnailImage setImageWithURL:image.url
+    [cell.thumbnailImage setImageWithURL:[image getSmallThumbnailURL]
                         placeholderImage:nil
                                  options:indexPath.row == 0 ? SDWebImageProgressiveDownload : 0
                                 progress:^(NSUInteger receivedSize, long long expectedSize) { [activityIndicator startAnimating]; }
@@ -155,13 +156,12 @@
                                    }
                                }];
 
-
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //do something
+
 }
 
 
