@@ -17,6 +17,7 @@
 @interface MasterViewController () {
     NSMutableArray *_imageArray;
     int _page;
+    UIActivityIndicatorView *_activityIndicator;
 }
 @end
 
@@ -67,6 +68,7 @@
                                                                            error:&error];
     NSMutableArray *imgurArray = [[NSMutableArray alloc] init];
     imgurArray = [imageResponse objectForKey:@"data"];
+    NSLog(@"%@",imgurArray);
     [self populateImageArray:imgurArray];
 }
 
@@ -128,8 +130,40 @@
                                                                            forIndexPath:indexPath];
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
     ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
-    [imageView setImageWithURL:image.url];
+    
+    UIActivityIndicatorView *activityIndicator = (UIActivityIndicatorView *)[cell viewWithTag:200];
+    if (activityIndicator) [activityIndicator removeFromSuperview];
+    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.hidesWhenStopped = YES;
+    activityIndicator.hidden = NO;
+    [activityIndicator startAnimating];
+    activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
+    activityIndicator.tag = 200;
+    [imageView addSubview:activityIndicator];
+    
+    [imageView setImageWithURL:image.url
+              placeholderImage:nil
+                       options:SDWebImageProgressiveDownload
+                      progress:^(NSUInteger receivedSize, long long expectedSize) { [activityIndicator startAnimating]; }
+                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                         if (image) {
+                             [activityIndicator stopAnimating];
+                             [activityIndicator removeFromSuperview];
+                         }
+                     }];
+
+
     return cell;
+}
+
+- (UIActivityIndicatorView *)activityIndicator:(UICollectionViewCell *)cell
+{
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.hidesWhenStopped = YES;
+    activityIndicator.hidden = NO;
+    //activityIndicator.center =
+
+    return activityIndicator;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -137,9 +171,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         DetailViewController *vc = segue.destinationViewController;
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] lastObject];
-        
-        // Is it a good idea to be setting another view controller property
-        // here? Or should I call a method and set in the presented vc instead?
+
         vc.imageIndex = indexPath;
         vc.imageArray = [NSMutableArray arrayWithArray:_imageArray];
     }
