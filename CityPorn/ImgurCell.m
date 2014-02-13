@@ -33,14 +33,4 @@
     [self.thumbnailImage addSubview:self.activityIndicator];
 }
 
-- (void)showActivityIndicator
-{
-    
-}
-
-- (void)hideActivityIndicator
-{
-    
-}
-
 @end

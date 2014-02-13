@@ -31,7 +31,6 @@
     [self loadSelectedImage];
 }
 
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];

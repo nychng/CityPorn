@@ -14,7 +14,5 @@
 @property (strong, nonatomic) NSString *url;
 
 - (void)setupActivityIndicator;
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
 
 @end
