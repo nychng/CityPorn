@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UICollectionViewController
+@interface DetailViewController : UICollectionViewController <UIScrollViewDelegate> {
+	CGFloat _firstX;
+	CGFloat _firstY;
+}
 
+
+@property (strong, nonatomic) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *imageArray;
 @property (nonatomic, strong) NSIndexPath *imageIndex;
 

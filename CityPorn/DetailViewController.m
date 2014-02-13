@@ -24,11 +24,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self loadSelectedImage];
+
 }
 
 - (void)viewDidUnload
@@ -99,10 +101,10 @@
     static NSString *cellIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
                                                                            forIndexPath:indexPath];
+    [self resetImage:cell];
     ImageItem *image = [self.imageArray objectAtIndex:indexPath.row];
-    
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
-    
+
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     activityIndicator.hidesWhenStopped = YES;
     activityIndicator.hidden = NO;
@@ -120,8 +122,11 @@
                     }];
     
     UILabel *imageLabel = (UILabel *)[cell viewWithTag:200];
+    imageLabel.hidden = NO;
     imageLabel.text = image.title;
     imageLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    
+    [self loadGestures:imageView];
     
     return cell;
 }
@@ -132,6 +137,66 @@
     UILabel *imageLabel = (UILabel *)[cell viewWithTag:200];
     
     imageLabel.hidden = imageLabel.hidden ? NO : YES;
+}
+
+
+- (void)loadGestures:(UIImageView *)imageView
+{
+    imageView.userInteractionEnabled = YES;
+    
+    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc]
+                                     initWithTarget:self action:@selector(pinch:)];
+    [imageView addGestureRecognizer:pinchRecognizer];
+    
+//	UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
+//                                             initWithTarget:self action:@selector(move:)];
+//	[panRecognizer setMinimumNumberOfTouches:1];
+//	[panRecognizer setMaximumNumberOfTouches:1];
+//	[imageView addGestureRecognizer:panRecognizer];
+
+}
+
+- (void)pinch:(UIPinchGestureRecognizer *)gesture {
+    UICollectionViewCell *cell = [self.collectionView visibleCells][0];
+    if (gesture.state == UIGestureRecognizerStateEnded
+        || gesture.state == UIGestureRecognizerStateChanged) {
+        
+        CGFloat currentScale = cell.frame.size.width / cell.bounds.size.width;
+        CGFloat newScale = currentScale * gesture.scale;
+        
+        if (newScale < 1.0) {
+            newScale = 1.0;
+        }
+        if (newScale > 3.0) {
+            newScale = 3.0;
+        }
+        
+        CGAffineTransform transform = CGAffineTransformMakeScale(newScale, newScale);
+        cell.transform = transform;
+        gesture.scale = 1;
+    }
+}
+
+- (void)move:(id)sender {
+    UICollectionViewCell *cell = [self.collectionView visibleCells][0];
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+    CGPoint translatedPoint = [(UIPanGestureRecognizer *)sender translationInView:self.collectionView];
+    
+    if ([(UIPanGestureRecognizer *)sender state] == UIGestureRecognizerStateBegan) {
+        _firstX = [imageView center].x;
+        _firstY = [imageView center].y;
+    }
+    
+    translatedPoint = CGPointMake(_firstX+translatedPoint.x, _firstY+translatedPoint.y);
+    [imageView setCenter:translatedPoint];
+}
+
+- (void)resetImage:(UICollectionViewCell *)cell
+{
+    CGAffineTransform transform = CGAffineTransformMakeScale(1.0, 1.0);
+    cell.transform = transform;
+//    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+//    [imageView setCenter:CGPointMake([imageView center].x, [imageView center].y)];
 }
 
 @end
