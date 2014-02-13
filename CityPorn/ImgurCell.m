@@ -12,6 +12,10 @@
 
 - (void)prepareForReuse
 {
+    if (self.activityIndicator) {
+        [self.activityIndicator stopAnimating];
+        [self.activityIndicator removeFromSuperview];
+    }
     self.thumbnailImage.image = nil;
     [self.thumbnailImage cancelCurrentImageLoad];
 }
@@ -21,10 +25,9 @@
     if (self.activityIndicator) {
         [self.activityIndicator removeFromSuperview];
     }
-    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     self.activityIndicator.hidesWhenStopped = YES;
     self.activityIndicator.hidden = NO;
-    //[activityIndicator startAnimating];
+    [self.activityIndicator startAnimating];
     self.activityIndicator.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     self.activityIndicator.tag = 200;
     [self.thumbnailImage addSubview:self.activityIndicator];

@@ -105,8 +105,13 @@
     // contentSize.height = total height inclusive of all the objects
     // frame.size.height = fixed height of the screen. iphone5 is 568
     if (scrollView.contentOffset.y >= roundf(scrollView.contentSize.height-scrollView.frame.size.height)) {
-        [self loadMoreImages];
-        [self.collectionView reloadData];
+        dispatch_queue_t imageQueue = dispatch_queue_create("com.CityPorn.loadImagesQueue", NULL);
+        dispatch_async(imageQueue, ^{
+            [self loadMoreImages];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
+        });
     }
 }
 
@@ -136,26 +141,16 @@
         if (activityIndicator) {
             [activityIndicator removeFromSuperview];
         }
-        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        activityIndicator.hidesWhenStopped = YES;
-        activityIndicator.hidden = NO;
-        activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
-        activityIndicator.tag = 200;
-        
-        [cell.thumbnailImage addSubview:activityIndicator];
+        [cell setupActivityIndicator];
         [cell.thumbnailImage setImageWithURL:[image getSmallThumbnailURL]
                             placeholderImage:nil
                                      options:SDWebImageProgressiveDownload
                                     progress:^(NSUInteger receivedSize, long long expectedSize) {
-                                        if (!activityIndicator) {
-                                            [activityIndicator startAnimating];
-                                        }
+                                        [activityIndicator startAnimating];
                                     }
-                                   completed:^(UIImage *completeImage, NSError *error, SDImageCacheType cacheType) {
-                                       if (completeImage) {
-                                           [activityIndicator stopAnimating];
-                                           [activityIndicator removeFromSuperview];
-                                       }
+                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                        [activityIndicator stopAnimating];
+                                        [activityIndicator removeFromSuperview];
                                    }];
     } else {
         [cell setupActivityIndicator];

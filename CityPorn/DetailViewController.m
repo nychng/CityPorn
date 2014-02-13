@@ -48,8 +48,7 @@
     UIImageWriteToSavedPhotosAlbum(imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
-- (void)image:(UIImage *)image
-didFinishSavingWithError:(NSError *)error
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
   contextInfo: (void *) contextInfo
 {
     NSString *title;
@@ -105,7 +104,22 @@ didFinishSavingWithError:(NSError *)error
     
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
     
-    [imageView setImageWithURL:image.url];
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.hidesWhenStopped = YES;
+    activityIndicator.hidden = NO;
+    activityIndicator.center = CGPointMake(cell.frame.size.width/2, cell.frame.size.height/2);
+    [imageView addSubview:activityIndicator];
+    [imageView setImageWithURL:image.url
+              placeholderImage:nil
+                       options:SDWebImageProgressiveDownload
+                      progress:^(NSUInteger receivedSize, long long expectedSize) {
+                          [activityIndicator startAnimating];
+                        }
+                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                         [activityIndicator stopAnimating];
+                         [activityIndicator removeFromSuperview];
+                    }];
+    
     UILabel *imageLabel = (UILabel *)[cell viewWithTag:200];
     imageLabel.text = image.title;
     imageLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
