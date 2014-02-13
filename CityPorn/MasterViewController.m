@@ -9,7 +9,6 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "InfoViewController.h"
-#import "UIImage+animatedGIF.h"
 #import "ImageItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ImgurCell.h"
@@ -57,8 +56,9 @@
 - (void)initialDataFetch
 {
     _page = 1;
-    if(_imageArray == nil)
+    if(!_imageArray)  {
         _imageArray = [[NSMutableArray alloc] init];
+    }
     
     NSString *url = [self getURL:_page];
     NSData *response = [[self getDataFrom:url] dataUsingEncoding:NSUTF8StringEncoding];
@@ -104,7 +104,7 @@
     // contentOffset.y = distance from top left hand corner of screen. starts at 0
     // contentSize.height = total height inclusive of all the objects
     // frame.size.height = fixed height of the screen. iphone5 is 568
-    if (scrollView.contentOffset.y == roundf(scrollView.contentSize.height-scrollView.frame.size.height)) {
+    if (scrollView.contentOffset.y >= roundf(scrollView.contentSize.height-scrollView.frame.size.height)) {
         [self loadMoreImages];
         [self.collectionView reloadData];
     }
@@ -127,9 +127,6 @@
     static NSString *cellIdentifier = @"Cell";
     ImgurCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
                                                                 forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[ImgurCell alloc] init];
-    }
     
     if (indexPath.item < _imageArray.count) {
         ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
@@ -142,7 +139,6 @@
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         activityIndicator.hidesWhenStopped = YES;
         activityIndicator.hidden = NO;
-        //[activityIndicator startAnimating];
         activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
         activityIndicator.tag = 200;
         
@@ -162,17 +158,7 @@
                                        }
                                    }];
     } else {
-        UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
-        if (activityIndicator) {
-            [activityIndicator removeFromSuperview];
-        }
-        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        activityIndicator.hidesWhenStopped = YES;
-        activityIndicator.hidden = NO;
-        //[activityIndicator startAnimating];
-        activityIndicator.center = CGPointMake(cell.frame.size.width /2, cell.frame.size.height/2);
-        activityIndicator.tag = 200;
-        [cell.thumbnailImage addSubview:activityIndicator];
+        [cell setupActivityIndicator];
     }
     return cell;
 }
@@ -200,7 +186,7 @@
     [request setURL:[NSURL URLWithString:url]];
     [request setValue:CLIENTID forHTTPHeaderField:@"Authorization"];
     
-    NSError *error = [[NSError alloc] init];
+    NSError *error;
     NSHTTPURLResponse *responseCode = nil;
     NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request
                                                   returningResponse:&responseCode

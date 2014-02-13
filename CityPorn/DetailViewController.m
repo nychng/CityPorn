@@ -118,11 +118,7 @@ didFinishSavingWithError:(NSError *)error
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     UILabel *imageLabel = (UILabel *)[cell viewWithTag:200];
     
-    if (imageLabel.hidden) {
-        imageLabel.hidden = NO;
-    } else {
-        imageLabel.hidden = YES;
-    }
+    imageLabel.hidden = imageLabel.hidden ? NO : YES;
 }
 
 @end

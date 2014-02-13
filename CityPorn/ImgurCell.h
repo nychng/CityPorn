@@ -13,6 +13,8 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSString *url;
 
-
+- (void)setupActivityIndicator;
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
 
 @end

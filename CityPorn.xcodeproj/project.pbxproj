@@ -26,7 +26,6 @@
 		2D8BF2B418AA8A3200170068 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8BF2B318AA8A3200170068 /* SDWebImage.framework */; };
 		2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C618718A8E23600B31A69 /* ImageItem.m */; };
 		2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */; };
-		2D9C619818AA02F100B31A69 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C619718AA02F100B31A69 /* UIImage+animatedGIF.m */; };
 		2D9C619D18AA085700B31A69 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2D9C619C18AA085700B31A69 /* loading.gif */; };
 		2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */; };
 		2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624418AA0F4800B31A69 /* Security.framework */; };
@@ -73,8 +72,6 @@
 		2D9C618618A8E23500B31A69 /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
 		2D9C618718A8E23600B31A69 /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
 		2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		2D9C619618AA02F100B31A69 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
-		2D9C619718AA02F100B31A69 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		2D9C619C18AA085700B31A69 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2D9C624418AA0F4800B31A69 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -118,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				2D8BF2B318AA8A3200170068 /* SDWebImage.framework */,
-				2D9C619918AA02F700B31A69 /* UIImageAnimatedGIF */,
 				2D4AED2218A49B2F00AB62B1 /* CityPorn */,
 				2D4AED4418A49B2F00AB62B1 /* CityPornTests */,
 				2D4AED1B18A49B2F00AB62B1 /* Frameworks */,
@@ -210,15 +206,6 @@
 				2D9C619C18AA085700B31A69 /* loading.gif */,
 			);
 			name = images;
-			sourceTree = "<group>";
-		};
-		2D9C619918AA02F700B31A69 /* UIImageAnimatedGIF */ = {
-			isa = PBXGroup;
-			children = (
-				2D9C619618AA02F100B31A69 /* UIImage+animatedGIF.h */,
-				2D9C619718AA02F100B31A69 /* UIImage+animatedGIF.m */,
-			);
-			name = UIImageAnimatedGIF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +313,6 @@
 				2DACD23918AB2BDE00441BDA /* ImgurCell.m in Sources */,
 				2D4AED2918A49B2F00AB62B1 /* main.m in Sources */,
 				2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */,
-				2D9C619818AA02F100B31A69 /* UIImage+animatedGIF.m in Sources */,
 				2D4AED3618A49B2F00AB62B1 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
