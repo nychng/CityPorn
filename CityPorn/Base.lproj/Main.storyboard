@@ -105,8 +105,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hello! All images are sourced from /r/cityporn on reddit.   Also, if the app is crashing, scroll slower ;)" translatesAutoresizingMaskIntoConstraints="NO" id="mJP-Hm-cnr">
-                                <rect key="frame" x="20" y="206" width="280" height="155"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hello! All images are sourced from /r/cityporn on reddit. " translatesAutoresizingMaskIntoConstraints="NO" id="mJP-Hm-cnr">
+                                <rect key="frame" x="20" y="206" width="280" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -114,7 +114,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAS-9U-1XC">
-                                <rect key="frame" x="203" y="369" width="97" height="41"/>
+                                <rect key="frame" x="112" y="324" width="97" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                 <state key="normal" title="back">
