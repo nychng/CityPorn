@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="-1" y="64"/>
         </scene>
-        <!--Master View Controller - CityPorn-->
+        <!--Master View Controller - cityscapes-->
         <scene sceneID="0od-aW-tqr">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="fgv-IO-aAm" customClass="MasterViewController" sceneMemberID="viewController">
@@ -41,23 +41,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="174"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-bs-wwT">
-                                            <rect key="frame" x="0.0" y="0.0" width="106" height="174"/>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tHf-bs-wwT">
+                                            <rect key="frame" x="-1" y="0.0" width="106" height="174"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
-                                        <activityIndicatorView opaque="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fUm-ut-sMe">
-                                            <rect key="frame" x="35" y="68" width="37" height="37"/>
+                                        <activityIndicatorView opaque="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="fUm-ut-sMe">
+                                            <rect key="frame" x="43" y="77" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="tHf-bs-wwT" firstAttribute="top" secondItem="hpB-Z2-MKd" secondAttribute="top" id="O3E-FX-EHY"/>
-                                    <constraint firstAttribute="bottom" secondItem="tHf-bs-wwT" secondAttribute="bottom" id="eEf-oC-pjW"/>
-                                    <constraint firstItem="tHf-bs-wwT" firstAttribute="leading" secondItem="hpB-Z2-MKd" secondAttribute="leading" id="fK4-Q4-ATo"/>
-                                    <constraint firstAttribute="trailing" secondItem="tHf-bs-wwT" secondAttribute="trailing" id="hRV-3U-Lkw"/>
-                                </constraints>
                                 <size key="customSize" width="106" height="174"/>
                                 <connections>
                                     <outlet property="activityIndicator" destination="fUm-ut-sMe" id="Te0-Eh-YUP"/>
@@ -71,73 +65,13 @@
                             <outlet property="delegate" destination="fgv-IO-aAm" id="yrg-D0-fhH"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="CityPorn" id="xTk-cG-kEa">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="CTB-na-yEa">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="x4M-b8-MV0">
-                                <rect key="frame" x="282" y="11" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="qUA-Wj-GNX" kind="modal" id="nks-Jp-Knv"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="cityscapes" id="xTk-cG-kEa"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEG-jd-Roz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="458" y="64"/>
-        </scene>
-        <!--Info View Controller - Info-->
-        <scene sceneID="3bs-dZ-fZ9">
-            <objects>
-                <viewController title="Info" id="qUA-Wj-GNX" customClass="InfoViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hlm-o1-ykg"/>
-                        <viewControllerLayoutGuide type="bottom" id="6AQ-nU-pv0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PzC-HV-W5u">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AEm-CP-dmF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hello! All images are sourced from /r/cityporn on reddit. " translatesAutoresizingMaskIntoConstraints="NO" id="mJP-Hm-cnr">
-                                <rect key="frame" x="20" y="206" width="280" height="110"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAS-9U-1XC">
-                                <rect key="frame" x="112" y="324" width="97" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
-                                <state key="normal" title="back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="close" destination="qUA-Wj-GNX" eventType="touchUpInside" id="Wfj-b7-54C"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <connections>
-                        <outlet property="closeButton" destination="kAS-9U-1XC" id="HoI-oN-SzH"/>
-                        <outlet property="infoLabel" destination="mJP-Hm-cnr" id="jEW-0P-8Fn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YlA-ci-X1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1026" y="-323"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="QPQ-AS-NbS">
@@ -196,12 +130,9 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo2-aJ-g1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="538"/>
+            <point key="canvasLocation" x="964" y="64"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="background.jpg" width="1920" height="1277"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

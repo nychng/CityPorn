@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MasterViewController : UICollectionViewController
+@interface MasterViewController : UICollectionViewController <UIAlertViewDelegate>
 
 
 @end

@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "ImageItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "NetworkChecker.h"
 
 @interface DetailViewController ()
 {
@@ -110,23 +111,28 @@
     activityIndicator.hidden = NO;
     activityIndicator.center = CGPointMake(cell.frame.size.width/2, cell.frame.size.height/2);
     [imageView addSubview:activityIndicator];
-    [imageView setImageWithURL:image.url
-              placeholderImage:nil
-                       options:SDWebImageProgressiveDownload
-                      progress:^(NSUInteger receivedSize, long long expectedSize) {
-                          [activityIndicator startAnimating];
-                        }
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                         [activityIndicator stopAnimating];
-                         [activityIndicator removeFromSuperview];
-                    }];
-    
-    UILabel *imageLabel = (UILabel *)[cell viewWithTag:200];
-    imageLabel.hidden = NO;
-    imageLabel.text = image.title;
-    imageLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
     
     [self loadGestures:imageView];
+    
+    if ([NetworkChecker hasConnectivity]) {
+        [imageView setImageWithURL:image.url
+                  placeholderImage:nil
+                           options:SDWebImageProgressiveDownload
+                          progress:^(NSUInteger receivedSize, long long expectedSize) {
+                              [activityIndicator startAnimating];
+                          }
+                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                             [activityIndicator stopAnimating];
+                             [activityIndicator removeFromSuperview];
+                         }];
+        
+        UILabel *imageLabel = (UILabel *)[cell viewWithTag:200];
+        imageLabel.hidden = NO;
+        imageLabel.text = image.title;
+        imageLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    } else {
+        [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self];
+    }
     
     return cell;
 }

@@ -8,19 +8,34 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "InfoViewController.h"
 #import "ImageItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ImgurCell.h"
+#import "NetworkChecker.h"
 
-@interface MasterViewController () {
-    NSMutableArray *_imageArray;
-    int _page;
-    UIActivityIndicatorView *_activityIndicator;
-}
+@interface MasterViewController ()
+
+@property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic) int page;
 @end
 
 @implementation MasterViewController
+
+- (NSMutableArray *)imageArray
+{
+    if (!_imageArray) {
+        _imageArray = [[NSMutableArray alloc] init];
+    }
+    return _imageArray;
+}
+
+- (int)page
+{
+    if (!_page) {
+        _page = 1;
+    }
+    return _page;
+}
 
 - (void)awakeFromNib
 {
@@ -30,12 +45,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.page = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     // load data here
-    [self initialDataFetch];
+    [self loadImages];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,37 +69,24 @@
     self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
 }
 
-- (void)initialDataFetch
-{
-    _page = 1;
-    if(!_imageArray)  {
-        _imageArray = [[NSMutableArray alloc] init];
-    }
-    
-    NSString *url = [self getURL:_page];
-    NSData *response = [[self getDataFrom:url] dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = [[NSError alloc] init];
-    NSMutableDictionary *imageResponse = [NSJSONSerialization JSONObjectWithData:response
-                                                                         options:NSJSONReadingMutableContainers
-                                                                           error:&error];
-    NSMutableArray *imgurArray = [[NSMutableArray alloc] init];
-    imgurArray = [imageResponse objectForKey:@"data"];
-    [self populateImageArray:imgurArray];
-}
-
 #pragma mark - Collection View
 
-- (void)loadMoreImages
+- (void)loadImages
 {
-    _page++;
-    NSString *url = [self getURL:_page];
-    NSData *response = [[self getDataFrom:url] dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = [[NSError alloc] init];
-    NSMutableDictionary *imageResponse = [NSJSONSerialization JSONObjectWithData:response
-                                                                         options:NSJSONReadingMutableContainers
-                                                                           error:&error];
-    NSMutableArray *data = [imageResponse objectForKey:@"data"];
-    [self populateImageArray:data];
+    if ([NetworkChecker hasConnectivity]) {
+        NSString *url = [self getURL:self.page];
+        NSData *response = [[self getDataFrom:url] dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = [[NSError alloc] init];
+        NSMutableDictionary *imageResponse = [NSJSONSerialization JSONObjectWithData:response
+                                                                             options:NSJSONReadingMutableContainers
+                                                                               error:&error];
+        NSMutableArray *data = [imageResponse objectForKey:@"data"];
+        [self populateImageArray:data];
+        self.page++;
+    } else {
+        [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self];
+    }
+
 }
 
 - (void)populateImageArray:(NSArray *)data
@@ -95,7 +98,7 @@
         ImageItem *image = [[ImageItem alloc] init];
         image.title = title;
         image.url = url;
-        [_imageArray addObject:image];
+        [self.imageArray addObject:image];
     }
 }
 
@@ -104,26 +107,32 @@
     // contentOffset.y = distance from top left hand corner of screen. starts at 0
     // contentSize.height = total height inclusive of all the objects
     // frame.size.height = fixed height of the screen. iphone5 is 568
-    if (scrollView.contentOffset.y >= roundf(scrollView.contentSize.height-scrollView.frame.size.height)) {
-        dispatch_queue_t imageQueue = dispatch_queue_create("com.CityPorn.loadImagesQueue", NULL);
-        dispatch_async(imageQueue, ^{
-            [self loadMoreImages];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.collectionView reloadData];
-            });
-        });
+    if (fabsf(scrollView.contentOffset.y) >= fabsf(roundf(scrollView.contentSize.height-scrollView.frame.size.height))) {
+//        dispatch_queue_t imageQueue = dispatch_queue_create("com.CityPorn.loadImagesQueue", NULL);
+//        dispatch_async(imageQueue, ^{
+//            [self loadMoreImages];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.collectionView reloadData];
+//            });
+//        });
+        if ([NetworkChecker hasConnectivity]) {
+            [self loadImages];
+            [self.collectionView reloadData];
+        } else {
+            [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self]; 
+        }
     }
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return _imageArray.count + 1;
+    if ([NetworkChecker hasConnectivity]) {
+        return self.imageArray.count + 1;
+    } else {
+        return 0;
+    }
+
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -153,7 +162,9 @@
                                         [activityIndicator removeFromSuperview];
                                    }];
     } else {
-        [cell setupActivityIndicator];
+        if ([NetworkChecker hasConnectivity]) {
+            [cell setupActivityIndicator];
+        }
     }
     return cell;
 }
@@ -163,14 +174,10 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         DetailViewController *vc = segue.destinationViewController;
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] lastObject];
-
         vc.imageIndex = indexPath;
         vc.imageArray = [NSMutableArray arrayWithArray:_imageArray];
     }
-    
-    if ([[segue identifier] isEqualToString:@"showInfo"]) {
-        // do something
-    }
+
 }
 
 
@@ -186,7 +193,7 @@
     NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request
                                                   returningResponse:&responseCode
                                                               error:&error];
-    if([responseCode statusCode] != 200){
+    if([responseCode statusCode] != 200) {
         NSLog(@"Error getting %@, HTTP status code %d", url, [responseCode statusCode]);
         return nil;
     }

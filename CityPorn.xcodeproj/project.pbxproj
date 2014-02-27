@@ -26,12 +26,11 @@
 		2D8BF2B418AA8A3200170068 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8BF2B318AA8A3200170068 /* SDWebImage.framework */; };
 		2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C618718A8E23600B31A69 /* ImageItem.m */; };
 		2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */; };
-		2D9C619D18AA085700B31A69 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2D9C619C18AA085700B31A69 /* loading.gif */; };
 		2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */; };
 		2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624418AA0F4800B31A69 /* Security.framework */; };
 		2DACD23918AB2BDE00441BDA /* ImgurCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DACD23818AB2BDE00441BDA /* ImgurCell.m */; };
-		2DACD23C18AB5C6200441BDA /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DACD23B18AB5C6200441BDA /* InfoViewController.m */; };
-		2DACD23E18AB633A00441BDA /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DACD23D18AB633A00441BDA /* background.jpg */; };
+		2DCA4D2118BC97C900FDA799 /* NetworkChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA4D2018BC97C900FDA799 /* NetworkChecker.m */; };
+		2DCA4D2518BC97EB00FDA799 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA4D2418BC97EB00FDA799 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,14 +71,14 @@
 		2D9C618618A8E23500B31A69 /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
 		2D9C618718A8E23600B31A69 /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
 		2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		2D9C619C18AA085700B31A69 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2D9C624418AA0F4800B31A69 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2DACD23718AB2BDE00441BDA /* ImgurCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurCell.h; sourceTree = "<group>"; };
 		2DACD23818AB2BDE00441BDA /* ImgurCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurCell.m; sourceTree = "<group>"; };
-		2DACD23A18AB5C6200441BDA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		2DACD23B18AB5C6200441BDA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		2DACD23D18AB633A00441BDA /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		2DCA4D1F18BC97C900FDA799 /* NetworkChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkChecker.h; sourceTree = "<group>"; };
+		2DCA4D2018BC97C900FDA799 /* NetworkChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkChecker.m; sourceTree = "<group>"; };
+		2DCA4D2318BC97EB00FDA799 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		2DCA4D2418BC97EB00FDA799 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +113,6 @@
 		2D4AED1018A49B2F00AB62B1 = {
 			isa = PBXGroup;
 			children = (
-				2D8BF2B318AA8A3200170068 /* SDWebImage.framework */,
 				2D4AED2218A49B2F00AB62B1 /* CityPorn */,
 				2D4AED4418A49B2F00AB62B1 /* CityPornTests */,
 				2D4AED1B18A49B2F00AB62B1 /* Frameworks */,
@@ -134,6 +132,7 @@
 		2D4AED1B18A49B2F00AB62B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D8BF2B318AA8A3200170068 /* SDWebImage.framework */,
 				2D9C624418AA0F4800B31A69 /* Security.framework */,
 				2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */,
 				2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */,
@@ -149,22 +148,12 @@
 		2D4AED2218A49B2F00AB62B1 /* CityPorn */ = {
 			isa = PBXGroup;
 			children = (
-				2D4AED2B18A49B2F00AB62B1 /* AppDelegate.h */,
-				2D4AED2C18A49B2F00AB62B1 /* AppDelegate.m */,
-				2DACD23718AB2BDE00441BDA /* ImgurCell.h */,
-				2DACD23818AB2BDE00441BDA /* ImgurCell.m */,
-				2D4AED2E18A49B2F00AB62B1 /* Main.storyboard */,
-				2D9C618618A8E23500B31A69 /* ImageItem.h */,
-				2D9C618718A8E23600B31A69 /* ImageItem.m */,
-				2DACD23A18AB5C6200441BDA /* InfoViewController.h */,
-				2DACD23B18AB5C6200441BDA /* InfoViewController.m */,
-				2D4AED3118A49B2F00AB62B1 /* MasterViewController.h */,
-				2D4AED3218A49B2F00AB62B1 /* MasterViewController.m */,
-				2D4AED3418A49B2F00AB62B1 /* DetailViewController.h */,
-				2D4AED3518A49B2F00AB62B1 /* DetailViewController.m */,
-				2D4AED5418A4A09300AB62B1 /* constants.h */,
+				2DCA4D1D18BC978E00FDA799 /* Model */,
+				2DCA4D1C18BC978200FDA799 /* View */,
+				2DCA4D1E18BC979600FDA799 /* Controllers */,
+				2DCA4D2218BC97CD00FDA799 /* Utilities */,
 				2D4AED3718A49B2F00AB62B1 /* Images.xcassets */,
-				2D9C619518A9FEFE00B31A69 /* images */,
+				2DCA4D2618BC97F000FDA799 /* Reachability */,
 				2D4AED2318A49B2F00AB62B1 /* Supporting Files */,
 			);
 			path = CityPorn;
@@ -173,6 +162,9 @@
 		2D4AED2318A49B2F00AB62B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2D4AED5418A4A09300AB62B1 /* constants.h */,
+				2D4AED2B18A49B2F00AB62B1 /* AppDelegate.h */,
+				2D4AED2C18A49B2F00AB62B1 /* AppDelegate.m */,
 				2D4AED2418A49B2F00AB62B1 /* CityPorn-Info.plist */,
 				2D4AED2518A49B2F00AB62B1 /* InfoPlist.strings */,
 				2D4AED2818A49B2F00AB62B1 /* main.m */,
@@ -199,13 +191,52 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2D9C619518A9FEFE00B31A69 /* images */ = {
+		2DCA4D1C18BC978200FDA799 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2DACD23D18AB633A00441BDA /* background.jpg */,
-				2D9C619C18AA085700B31A69 /* loading.gif */,
+				2D4AED2E18A49B2F00AB62B1 /* Main.storyboard */,
 			);
-			name = images;
+			name = View;
+			sourceTree = "<group>";
+		};
+		2DCA4D1D18BC978E00FDA799 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DACD23718AB2BDE00441BDA /* ImgurCell.h */,
+				2DACD23818AB2BDE00441BDA /* ImgurCell.m */,
+				2D9C618618A8E23500B31A69 /* ImageItem.h */,
+				2D9C618718A8E23600B31A69 /* ImageItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2DCA4D1E18BC979600FDA799 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D4AED3118A49B2F00AB62B1 /* MasterViewController.h */,
+				2D4AED3218A49B2F00AB62B1 /* MasterViewController.m */,
+				2D4AED3418A49B2F00AB62B1 /* DetailViewController.h */,
+				2D4AED3518A49B2F00AB62B1 /* DetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2DCA4D2218BC97CD00FDA799 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA4D1F18BC97C900FDA799 /* NetworkChecker.h */,
+				2DCA4D2018BC97C900FDA799 /* NetworkChecker.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		2DCA4D2618BC97F000FDA799 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA4D2318BC97EB00FDA799 /* Reachability.h */,
+				2DCA4D2418BC97EB00FDA799 /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +286,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = NYC;
 				TargetAttributes = {
+					2D4AED1818A49B2F00AB62B1 = {
+						DevelopmentTeam = HGKXQD78ZG;
+					};
 					2D4AED3C18A49B2F00AB62B1 = {
 						TestTargetID = 2D4AED1818A49B2F00AB62B1;
 					};
@@ -285,8 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4AED3818A49B2F00AB62B1 /* Images.xcassets in Resources */,
-				2DACD23E18AB633A00441BDA /* background.jpg in Resources */,
-				2D9C619D18AA085700B31A69 /* loading.gif in Resources */,
 				2D4AED2718A49B2F00AB62B1 /* InfoPlist.strings in Resources */,
 				2D4AED3018A49B2F00AB62B1 /* Main.storyboard in Resources */,
 			);
@@ -308,8 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4AED2D18A49B2F00AB62B1 /* AppDelegate.m in Sources */,
+				2DCA4D2118BC97C900FDA799 /* NetworkChecker.m in Sources */,
+				2DCA4D2518BC97EB00FDA799 /* Reachability.m in Sources */,
 				2D4AED3318A49B2F00AB62B1 /* MasterViewController.m in Sources */,
-				2DACD23C18AB5C6200441BDA /* InfoViewController.m in Sources */,
 				2DACD23918AB2BDE00441BDA /* ImgurCell.m in Sources */,
 				2D4AED2918A49B2F00AB62B1 /* main.m in Sources */,
 				2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */,
@@ -380,6 +413,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -419,6 +453,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -440,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nai/Developer/CityPorn,
@@ -458,6 +494,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nai Chng (HGKXQD78ZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nai Chng (HGKXQD78ZG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nai/Developer/CityPorn,

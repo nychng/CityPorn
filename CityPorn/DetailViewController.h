@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UICollectionViewController <UIScrollViewDelegate> {
+@interface DetailViewController : UICollectionViewController <UIScrollViewDelegate, UIAlertViewDelegate> {
 	CGFloat _firstX;
 	CGFloat _firstY;
 }
