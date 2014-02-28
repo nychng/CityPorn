@@ -46,11 +46,6 @@
 {
     [super viewDidLoad];
     self.page = 1;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    // load data here
     [self loadImages];
 }
 
