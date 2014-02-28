@@ -242,9 +242,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2D4AED1818A49B2F00AB62B1 /* CityPorn */ = {
+		2D4AED1818A49B2F00AB62B1 /* Urban City Wallpaper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D4AED4E18A49B2F00AB62B1 /* Build configuration list for PBXNativeTarget "CityPorn" */;
+			buildConfigurationList = 2D4AED4E18A49B2F00AB62B1 /* Build configuration list for PBXNativeTarget "Urban City Wallpaper" */;
 			buildPhases = (
 				2D4AED1518A49B2F00AB62B1 /* Sources */,
 				2D4AED1618A49B2F00AB62B1 /* Frameworks */,
@@ -254,7 +254,7 @@
 			);
 			dependencies = (
 			);
-			name = CityPorn;
+			name = "Urban City Wallpaper";
 			productName = CityPorn;
 			productReference = 2D4AED1918A49B2F00AB62B1 /* CityPorn.app */;
 			productType = "com.apple.product-type.application";
@@ -307,7 +307,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2D4AED1818A49B2F00AB62B1 /* CityPorn */,
+				2D4AED1818A49B2F00AB62B1 /* Urban City Wallpaper */,
 				2D4AED3C18A49B2F00AB62B1 /* CityPornTests */,
 			);
 		};
@@ -363,7 +363,7 @@
 /* Begin PBXTargetDependency section */
 		2D4AED4318A49B2F00AB62B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D4AED1818A49B2F00AB62B1 /* CityPorn */;
+			target = 2D4AED1818A49B2F00AB62B1 /* Urban City Wallpaper */;
 			targetProxy = 2D4AED4218A49B2F00AB62B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -563,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D4AED4E18A49B2F00AB62B1 /* Build configuration list for PBXNativeTarget "CityPorn" */ = {
+		2D4AED4E18A49B2F00AB62B1 /* Build configuration list for PBXNativeTarget "Urban City Wallpaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D4AED4F18A49B2F00AB62B1 /* Debug */,
