@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D4AED1818A49B2F00AB62B1"
                BuildableName = "CityPorn.app"
-               BlueprintName = "Urban City Wallpaper"
+               BlueprintName = "CityPorn"
                ReferencedContainer = "container:CityPorn.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D4AED1818A49B2F00AB62B1"
             BuildableName = "CityPorn.app"
-            BlueprintName = "Urban City Wallpaper"
+            BlueprintName = "CityPorn"
             ReferencedContainer = "container:CityPorn.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D4AED1818A49B2F00AB62B1"
             BuildableName = "CityPorn.app"
-            BlueprintName = "Urban City Wallpaper"
+            BlueprintName = "CityPorn"
             ReferencedContainer = "container:CityPorn.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D4AED1818A49B2F00AB62B1"
             BuildableName = "CityPorn.app"
-            BlueprintName = "Urban City Wallpaper"
+            BlueprintName = "CityPorn"
             ReferencedContainer = "container:CityPorn.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
