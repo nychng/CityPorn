@@ -118,7 +118,7 @@
         [imageView setImageWithURL:image.url
                   placeholderImage:nil
                            options:SDWebImageProgressiveDownload
-                          progress:^(NSUInteger receivedSize, long long expectedSize) {
+                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                               [activityIndicator startAnimating];
                           }
                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {

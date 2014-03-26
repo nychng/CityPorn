@@ -23,7 +23,7 @@
 		2D4AED4918A49B2F00AB62B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AED4718A49B2F00AB62B1 /* InfoPlist.strings */; };
 		2D4AED4B18A49B2F00AB62B1 /* CityPornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4AED4A18A49B2F00AB62B1 /* CityPornTests.m */; };
 		2D4AED5818A4A1B900AB62B1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4AED5718A4A1B900AB62B1 /* ImageIO.framework */; };
-		2D8BF2B418AA8A3200170068 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8BF2B318AA8A3200170068 /* SDWebImage.framework */; };
+		2D53B3C918E2BFE900D1FD09 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */; };
 		2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C618718A8E23600B31A69 /* ImageItem.m */; };
 		2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */; };
 		2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */; };
@@ -67,7 +67,7 @@
 		2D4AED4A18A49B2F00AB62B1 /* CityPornTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityPornTests.m; sourceTree = "<group>"; };
 		2D4AED5418A4A09300AB62B1 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		2D4AED5718A4A1B900AB62B1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		2D8BF2B318AA8A3200170068 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		2D9C618618A8E23500B31A69 /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
 		2D9C618718A8E23600B31A69 /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
 		2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -86,13 +86,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D8BF2B418AA8A3200170068 /* SDWebImage.framework in Frameworks */,
 				2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */,
 				2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */,
 				2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */,
 				2D4AED5818A4A1B900AB62B1 /* ImageIO.framework in Frameworks */,
 				2D4AED1F18A49B2F00AB62B1 /* CoreGraphics.framework in Frameworks */,
 				2D4AED2118A49B2F00AB62B1 /* UIKit.framework in Frameworks */,
+				2D53B3C918E2BFE900D1FD09 /* SDWebImage.framework in Frameworks */,
 				2D4AED1D18A49B2F00AB62B1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +132,7 @@
 		2D4AED1B18A49B2F00AB62B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2D8BF2B318AA8A3200170068 /* SDWebImage.framework */,
+				2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */,
 				2D9C624418AA0F4800B31A69 /* Security.framework */,
 				2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */,
 				2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */,
@@ -283,7 +283,7 @@
 		2D4AED1118A49B2F00AB62B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = NYC;
 				TargetAttributes = {
 					2D4AED1818A49B2F00AB62B1 = {
@@ -400,7 +400,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -440,7 +439,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -473,13 +471,15 @@
 		2D4AED4F18A49B2F00AB62B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nai/Developer/CityPorn,
+					"$(PROJECT_DIR)",
+					/Users/nai/Developer/Scenery,
+					/Users/nai/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CityPorn/CityPorn-Prefix.pch";
@@ -494,7 +494,6 @@
 		2D4AED5018A49B2F00AB62B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nai Chng (HGKXQD78ZG)";
@@ -502,6 +501,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nai/Developer/CityPorn,
+					"$(PROJECT_DIR)",
+					/Users/nai/Developer/Scenery,
+					/Users/nai/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CityPorn/CityPorn-Prefix.pch";
@@ -516,7 +518,6 @@
 		2D4AED5218A49B2F00AB62B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CityPorn.app/CityPorn";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -539,7 +540,6 @@
 		2D4AED5318A49B2F00AB62B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CityPorn.app/CityPorn";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

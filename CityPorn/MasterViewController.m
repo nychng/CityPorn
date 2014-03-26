@@ -149,7 +149,7 @@
         [cell.thumbnailImage setImageWithURL:[image getSmallThumbnailURL]
                             placeholderImage:nil
                                      options:SDWebImageProgressiveDownload
-                                    progress:^(NSUInteger receivedSize, long long expectedSize) {
+                                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                                         [activityIndicator startAnimating];
                                     }
                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
@@ -189,7 +189,7 @@
                                                   returningResponse:&responseCode
                                                               error:&error];
     if([responseCode statusCode] != 200) {
-        NSLog(@"Error getting %@, HTTP status code %d", url, [responseCode statusCode]);
+        NSLog(@"Error getting %@, HTTP status code %ld", url, (long)[responseCode statusCode]);
         return nil;
     }
     

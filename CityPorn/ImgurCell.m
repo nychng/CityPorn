@@ -7,6 +7,7 @@
 //
 
 #import "ImgurCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ImgurCell
 
