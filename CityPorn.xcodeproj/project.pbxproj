@@ -24,6 +24,7 @@
 		2D4AED4B18A49B2F00AB62B1 /* CityPornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4AED4A18A49B2F00AB62B1 /* CityPornTests.m */; };
 		2D4AED5818A4A1B900AB62B1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4AED5718A4A1B900AB62B1 /* ImageIO.framework */; };
 		2D53B3C918E2BFE900D1FD09 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */; };
+		2D53B3CB18E2C7A700D1FD09 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D53B3CA18E2C7A700D1FD09 /* iAd.framework */; };
 		2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C618718A8E23600B31A69 /* ImageItem.m */; };
 		2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */; };
 		2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */; };
@@ -68,6 +69,7 @@
 		2D4AED5418A4A09300AB62B1 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		2D4AED5718A4A1B900AB62B1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		2D53B3CA18E2C7A700D1FD09 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2D9C618618A8E23500B31A69 /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
 		2D9C618718A8E23600B31A69 /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
 		2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D53B3CB18E2C7A700D1FD09 /* iAd.framework in Frameworks */,
 				2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */,
 				2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */,
 				2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */,
@@ -132,6 +135,7 @@
 		2D4AED1B18A49B2F00AB62B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D53B3CA18E2C7A700D1FD09 /* iAd.framework */,
 				2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */,
 				2D9C624418AA0F4800B31A69 /* Security.framework */,
 				2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */,

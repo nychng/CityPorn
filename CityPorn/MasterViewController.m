@@ -47,6 +47,7 @@
     [super viewDidLoad];
     self.page = 1;
     [self loadImages];
+    [self setupDesign];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -61,10 +62,30 @@
 
 - (void)setStyle
 {
-    self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    //self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
 }
 
 #pragma mark - Collection View
+
+- (void)setupDesign {
+    self.navigationController.navigationBar.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
+//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+//                                                  forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];
+//    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    
+//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                    [UIColor whiteColor],NSForegroundColorAttributeName,
+//                                    [UIFont fontWithName:@"Helvetica Neue" size:20.0f],NSFontAttributeName,nil];
+    
+//    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
+}
 
 - (void)loadImages
 {
