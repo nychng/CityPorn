@@ -74,46 +74,40 @@
         <!--Detail View Controller-->
         <scene sceneID="vkI-HU-oe3">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="hM1-Gy-nk5" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController id="hM1-Gy-nk5" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bq9-id-F3L"/>
                         <viewControllerLayoutGuide type="bottom" id="onK-nz-56K"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jl7-Gs-wqz">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LK3-rz-956">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LK3-rz-956">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="07i-im-ZeB">
-                                    <size key="itemSize" width="320" height="468"/>
+                                    <size key="itemSize" width="320" height="518"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="D9a-8x-Mzh" customClass="ImgurCell">
-                                        <rect key="frame" x="0.0" y="-17" width="320" height="488"/>
+                                        <rect key="frame" x="0.0" y="64" width="320" height="518"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="488"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3e0-rW-7ZY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="488"/>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3e0-rW-7ZY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="3e0-rW-7ZY" firstAttribute="leading" secondItem="D9a-8x-Mzh" secondAttribute="leading" id="JnO-h2-yP7"/>
-                                            <constraint firstAttribute="bottom" secondItem="3e0-rW-7ZY" secondAttribute="bottom" id="fCd-Pg-q1D"/>
-                                            <constraint firstItem="3e0-rW-7ZY" firstAttribute="top" secondItem="D9a-8x-Mzh" secondAttribute="top" id="nmy-YB-ayf"/>
-                                            <constraint firstAttribute="trailing" secondItem="3e0-rW-7ZY" secondAttribute="trailing" id="tCN-JJ-pyJ"/>
-                                        </constraints>
-                                        <size key="customSize" width="320" height="488"/>
+                                        <size key="customSize" width="320" height="518"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -121,37 +115,30 @@
                                     <outlet property="delegate" destination="hM1-Gy-nk5" id="1y5-bH-eSg"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2MJ-Q9-Ec1">
-                                <rect key="frame" x="0.0" y="454" width="320" height="50"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-t2-cq5">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2m-sF-ddt">
+                                    <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EVv-SA-azP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="hM1-Gy-nk5" id="nIF-bo-DKd"/>
+                                            <outlet property="delegate" destination="hM1-Gy-nk5" id="hFm-s5-Zh9"/>
                                         </connections>
                                     </adBannerView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="N8Y-er-pvK"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="2MJ-Q9-Ec1" secondAttribute="trailing" id="1mb-zB-h29"/>
-                            <constraint firstItem="LK3-rz-956" firstAttribute="top" secondItem="bq9-id-F3L" secondAttribute="bottom" id="5Mt-si-k3U"/>
-                            <constraint firstAttribute="trailing" secondItem="LK3-rz-956" secondAttribute="trailing" id="Cu3-Mr-vNa"/>
-                            <constraint firstItem="2MJ-Q9-Ec1" firstAttribute="top" secondItem="LK3-rz-956" secondAttribute="bottom" id="FHk-tC-RMF"/>
-                            <constraint firstItem="onK-nz-56K" firstAttribute="top" secondItem="2MJ-Q9-Ec1" secondAttribute="bottom" id="OVf-3l-yZg"/>
-                            <constraint firstItem="LK3-rz-956" firstAttribute="leading" secondItem="Jl7-Gs-wqz" secondAttribute="leading" id="RFD-3O-QMI"/>
-                            <constraint firstItem="2MJ-Q9-Ec1" firstAttribute="leading" secondItem="Jl7-Gs-wqz" secondAttribute="leading" id="XaL-Dr-heu"/>
-                        </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="LrE-vL-Prj"/>
+                    <navigationItem key="navigationItem" id="LrE-vL-Prj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FLV-BY-61A">
+                            <connections>
+                                <action selector="saveButton:" destination="hM1-Gy-nk5" id="eZe-du-dJr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="LK3-rz-956" id="UXU-iw-WMc"/>
                     </connections>
