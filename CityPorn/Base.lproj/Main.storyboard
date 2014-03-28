@@ -115,7 +115,7 @@
                                     <outlet property="delegate" destination="hM1-Gy-nk5" id="1y5-bH-eSg"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-t2-cq5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-t2-cq5">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -128,9 +128,17 @@
                                     </adBannerView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hAC-PT-Wu9"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PBG-t2-cq5" firstAttribute="leading" secondItem="Jl7-Gs-wqz" secondAttribute="leading" id="PkL-CG-g6w"/>
+                            <constraint firstItem="onK-nz-56K" firstAttribute="top" secondItem="PBG-t2-cq5" secondAttribute="bottom" id="uTM-fz-tCi"/>
+                            <constraint firstAttribute="trailing" secondItem="PBG-t2-cq5" secondAttribute="trailing" id="xID-4w-EZr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LrE-vL-Prj">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FLV-BY-61A">
