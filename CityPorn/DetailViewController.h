@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface DetailViewController : UICollectionViewController <UIScrollViewDelegate, UIAlertViewDelegate> {
+@interface DetailViewController : UIViewController <UIScrollViewDelegate, UIAlertViewDelegate,
+UICollectionViewDataSource, UICollectionViewDelegate, ADBannerViewDelegate> {
 	CGFloat _firstX;
 	CGFloat _firstY;
 }
-
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *imageArray;

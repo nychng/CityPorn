@@ -10,12 +10,10 @@
 #import "ImageItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NetworkChecker.h"
-#import <iAd/iAd.h>
+
 
 @interface DetailViewController ()
-{
-    NSIndexPath *_currentIndexPath;
-}
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -81,10 +79,6 @@
                                         animated:NO];
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
@@ -99,7 +93,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //_currentIndexPath = indexPath;
     static NSString *cellIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
                                                                            forIndexPath:indexPath];
@@ -132,7 +125,8 @@
         imageLabel.text = image.title;
         imageLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
     } else {
-        [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self];
+        [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work"
+                                     title:@"No Network Connectivity!" delegate:self];
     }
     
     return cell;
@@ -241,5 +235,9 @@
     [UIView commitAnimations];
     
 }
+
+//- (BOOL)prefersStatusBarHidden {
+//    return YES;
+//}
 
 @end

@@ -19,7 +19,7 @@
 {
     NSArray *strings = [[self.url absoluteString] componentsSeparatedByString:@".jpg"];
     // http://api.imgur.com/models/image
-    NSString *thumbnailURL = [strings[0] stringByAppendingString:@"m.jpg"];
+    NSString *thumbnailURL = [strings[0] stringByAppendingString:@"l.jpg"];
     NSURL *url = [[NSURL alloc] initWithString:thumbnailURL];
     return url;
 }

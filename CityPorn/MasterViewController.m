@@ -196,7 +196,6 @@
 
 }
 
-
 - (NSString *)getDataFrom:(NSString *)url
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -225,8 +224,8 @@
     return url;
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
+//- (BOOL)prefersStatusBarHidden {
+//    return YES;
+//}
 
 @end
