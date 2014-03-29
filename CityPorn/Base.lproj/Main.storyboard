@@ -104,9 +104,21 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="Ero-Tc-EUr">
+                                                    <rect key="frame" x="0.0" y="33" width="320" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Ero-Tc-EUr" secondAttribute="trailing" id="L9V-eF-Q0N"/>
+                                            <constraint firstItem="Ero-Tc-EUr" firstAttribute="leading" secondItem="D9a-8x-Mzh" secondAttribute="leading" id="qke-6d-DBx"/>
+                                            <constraint firstItem="Ero-Tc-EUr" firstAttribute="top" secondItem="D9a-8x-Mzh" secondAttribute="top" constant="33" id="rGQ-ap-OFE"/>
+                                        </constraints>
                                         <size key="customSize" width="320" height="518"/>
                                     </collectionViewCell>
                                 </cells>
