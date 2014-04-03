@@ -1,25 +1,24 @@
 //
-//  MasterViewController.m
-//  CityPorn
+//  ViewController.m
+//  Scenery
 //
-//  Created by Nai Chng on 7/2/14.
+//  Created by Nai Chng on 17/2/14.
 //  Copyright (c) 2014 NYC. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "MainViewController.h"
 #import "DetailViewController.h"
-#import "ImageItem.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "ImgurCell.h"
+#import "ImageItem.h"
 #import "NetworkChecker.h"
 
-@interface MasterViewController ()
 
+@interface MainViewController ()
 @property (nonatomic, strong) NSMutableArray *imageArray;
 @property (nonatomic) int page;
 @end
 
-@implementation MasterViewController
+@implementation MainViewController
 
 - (NSMutableArray *)imageArray
 {
@@ -37,22 +36,11 @@
     return _page;
 }
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.page = 1;
     [self loadImages];
-    [self setupDesign];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,30 +50,12 @@
 
 - (void)setStyle
 {
-    //self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
 }
 
 #pragma mark - Collection View
 
-- (void)setupDesign {
-    self.navigationController.navigationBar.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-//                                                  forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [UIImage new];
-//    self.navigationController.navigationBar.translucent = YES;
-//    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    
-//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                    [UIColor whiteColor],NSForegroundColorAttributeName,
-//                                    [UIFont fontWithName:@"Helvetica Neue" size:20.0f],NSFontAttributeName,nil];
-    
-//    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
-}
+
 
 - (void)loadImages
 {
@@ -96,16 +66,18 @@
         NSMutableDictionary *imageResponse = [NSJSONSerialization JSONObjectWithData:response
                                                                              options:NSJSONReadingMutableContainers
                                                                                error:&error];
-        NSMutableArray *data = [imageResponse objectForKey:@"data"];
-        [self populateImageArray:data];
-        self.page++;
+        NSMutableOrderedSet *data = [imageResponse objectForKey:@"data"];
+        if (data) {
+            [self populateImageArray:data];
+            self.page++;
+        }
+
     } else {
         [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self];
     }
-
 }
 
-- (void)populateImageArray:(NSArray *)data
+- (void)populateImageArray:(NSMutableOrderedSet *)data
 {
     for (NSDictionary *obj in data) {
         NSString *title = [obj objectForKey:@"title"];
@@ -123,21 +95,33 @@
     // contentOffset.y = distance from top left hand corner of screen. starts at 0
     // contentSize.height = total height inclusive of all the objects
     // frame.size.height = fixed height of the screen. iphone5 is 568
+
     if (fabsf(scrollView.contentOffset.y) >= fabsf(roundf(scrollView.contentSize.height-scrollView.frame.size.height))) {
-//        dispatch_queue_t imageQueue = dispatch_queue_create("com.CityPorn.loadImagesQueue", NULL);
-//        dispatch_async(imageQueue, ^{
-//            [self loadMoreImages];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.collectionView reloadData];
-//            });
-//        });
         if ([NetworkChecker hasConnectivity]) {
-            [self loadImages];
-            [self.collectionView reloadData];
+            // Note to self: interestingly, when this block of code is triggered, it fires off a shit load
+            // of threads
+            
+//            dispatch_queue_t imageQueue = dispatch_queue_create("com.Scenery.loadImagesQueue", NULL);
+//            dispatch_async(imageQueue, ^{
+//                [self loadImages];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self.collectionView reloadData];
+//                });
+//            });
+            
+                [self loadImages];
+                [self.collectionView reloadData];
+
+
         } else {
-            [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self]; 
+            [NetworkChecker showNetworkMessage:@"No network connection found. An Internet connection is required for this application to work" title:@"No Network Connectivity!" delegate:self];
         }
     }
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
@@ -158,24 +142,24 @@
     ImgurCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
                                                                 forIndexPath:indexPath];
     
-    if (indexPath.item < _imageArray.count) {
-        ImageItem *image = [_imageArray objectAtIndex:indexPath.row];
+    if (indexPath.item < self.imageArray.count) {
+        ImageItem *image = [self.imageArray objectAtIndex:indexPath.row];
         [image getSmallThumbnailURL];
         
-        UIActivityIndicatorView *activityIndicator = cell.activityIndicator;
-        if (activityIndicator) {
-            [activityIndicator removeFromSuperview];
+        if (cell.activityIndicator) {
+            [cell.activityIndicator removeFromSuperview];
         }
         [cell setupActivityIndicator];
+        __weak typeof(ImgurCell) *weakCell = cell;
         [cell.thumbnailImage setImageWithURL:[image getSmallThumbnailURL]
                             placeholderImage:nil
                                      options:SDWebImageProgressiveDownload
                                     progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                                        [activityIndicator startAnimating];
+                                        [weakCell.activityIndicator startAnimating];
                                     }
                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                        [activityIndicator stopAnimating];
-                                        [activityIndicator removeFromSuperview];
+                                       [weakCell.activityIndicator stopAnimating];
+                                       [weakCell.activityIndicator removeFromSuperview];
                                    }];
     } else {
         if ([NetworkChecker hasConnectivity]) {
@@ -190,10 +174,14 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         DetailViewController *vc = segue.destinationViewController;
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] lastObject];
+        
         vc.imageIndex = indexPath;
-        vc.imageArray = [NSMutableArray arrayWithArray:_imageArray];
+        vc.imageArray = [NSMutableArray arrayWithArray:self.imageArray];
     }
-
+    
+    if ([[segue identifier] isEqualToString:@"showInfo"]) {
+        // do something
+    }
 }
 
 - (NSString *)getDataFrom:(NSString *)url
@@ -208,7 +196,7 @@
     NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request
                                                   returningResponse:&responseCode
                                                               error:&error];
-    if([responseCode statusCode] != 200) {
+    if([responseCode statusCode] != 200){
         NSLog(@"Error getting %@, HTTP status code %ld", url, (long)[responseCode statusCode]);
         return nil;
     }
@@ -224,8 +212,8 @@
     return url;
 }
 
-//- (BOOL)prefersStatusBarHidden {
-//    return YES;
-//}
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end

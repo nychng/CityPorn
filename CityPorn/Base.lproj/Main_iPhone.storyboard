@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="geT-hG-xeC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="4MV-y1-Nh7">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="geT-hG-xeC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R4s-0g-Rpj">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0F0-V3-E0b" kind="relationship" relationship="rootViewController" id="U9m-Ku-N2Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ndf-4g-YSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5" y="39"/>
+        </scene>
+        <!--Main View Controller - scenery-->
+        <scene sceneID="DlG-sd-4hQ">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="0F0-V3-E0b" customClass="MainViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Jbs-JQ-Zec">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="1p5-CB-wLg">
+                            <size key="itemSize" width="106" height="174"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="AZR-Qx-wJu" customClass="ImgurCell">
+                                <rect key="frame" x="0.0" y="64" width="106" height="174"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="106" height="174"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ViM-ny-H5U">
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="174"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="j3n-RC-x2B">
+                                            <rect key="frame" x="-107" y="-187" width="320" height="480"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="j3n-RC-x2B" id="wFd-bG-FjT"/>
+                                    <outlet property="thumbnailImage" destination="ViM-ny-H5U" id="7L0-2K-rAj"/>
+                                    <segue destination="cWB-9A-5b8" kind="push" identifier="showDetail" id="O4Y-1O-TUv"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="0F0-V3-E0b" id="3du-Ky-BMa"/>
+                            <outlet property="delegate" destination="0F0-V3-E0b" id="Hjn-Ut-AIz"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="scenery" id="XJf-cc-PYr"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FGP-uw-1CX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="424" y="39"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="W09-G8-Btg">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="cWB-9A-5b8" userLabel="Detail View Controller" customClass="DetailViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="2" dataMode="prototypes" id="dmT-Pv-fLw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T9F-oK-x6j">
+                            <size key="itemSize" width="320" height="568"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="Cell" id="4GI-87-6nn" customClass="ImgurCellDetail">
+                                <rect key="frame" x="0.0" y="-32" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpo-2o-1iD">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="HmF-Su-dbo">
+                                            <rect key="frame" x="0.0" y="504" width="320" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mJ5-96-mc0">
+                                            <rect key="frame" x="142" y="243" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HmF-Su-dbo" secondAttribute="bottom" constant="47" id="93n-FG-Yhe"/>
+                                    <constraint firstAttribute="centerX" secondItem="mJ5-96-mc0" secondAttribute="centerX" id="b4G-ci-OqF"/>
+                                    <constraint firstAttribute="centerY" secondItem="mJ5-96-mc0" secondAttribute="centerY" constant="22.5" id="bnc-pe-8H3"/>
+                                    <constraint firstAttribute="trailing" secondItem="HmF-Su-dbo" secondAttribute="trailing" id="w44-SA-ygr"/>
+                                    <constraint firstItem="HmF-Su-dbo" firstAttribute="leading" secondItem="4GI-87-6nn" secondAttribute="leading" id="xAk-cU-gl1"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="mJ5-96-mc0" id="T2H-zX-z7T"/>
+                                    <outlet property="imageView" destination="Gpo-2o-1iD" id="I1c-5U-UE1"/>
+                                    <outlet property="title" destination="HmF-Su-dbo" id="KfO-fi-8gI"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="cWB-9A-5b8" id="WRb-80-erT"/>
+                            <outlet property="delegate" destination="cWB-9A-5b8" id="67d-V3-zn6"/>
+                        </connections>
+                    </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="poG-zG-z4W">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gLf-zZ-Ie2">
+                            <connections>
+                                <action selector="saveButton:" destination="cWB-9A-5b8" id="Hpk-ZM-yVO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="320" height="1000"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wum-FK-ywy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="39"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
