@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="-5" y="39"/>
         </scene>
-        <!--Main View Controller - scenery-->
+        <!--Main View Controller-->
         <scene sceneID="DlG-sd-4hQ">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="0F0-V3-E0b" customClass="MainViewController" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <outlet property="delegate" destination="0F0-V3-E0b" id="Hjn-Ut-AIz"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="scenery" id="XJf-cc-PYr"/>
+                    <navigationItem key="navigationItem" id="XJf-cc-PYr"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGP-uw-1CX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,9 +73,9 @@
         <!--Detail View Controller-->
         <scene sceneID="W09-G8-Btg">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="cWB-9A-5b8" userLabel="Detail View Controller" customClass="DetailViewController" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="cWB-9A-5b8" userLabel="Detail View Controller" customClass="DetailViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="2" dataMode="prototypes" id="dmT-Pv-fLw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T9F-oK-x6j">
                             <size key="itemSize" width="320" height="568"/>
@@ -85,7 +85,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="Cell" id="4GI-87-6nn" customClass="ImgurCellDetail">
-                                <rect key="frame" x="0.0" y="-32" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -96,7 +96,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="HmF-Su-dbo">
-                                            <rect key="frame" x="0.0" y="504" width="320" height="17"/>
+                                            <rect key="frame" x="0.0" y="526" width="320" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,7 +111,7 @@
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="HmF-Su-dbo" secondAttribute="bottom" constant="47" id="93n-FG-Yhe"/>
+                                    <constraint firstAttribute="bottom" secondItem="HmF-Su-dbo" secondAttribute="bottom" constant="25" id="93n-FG-Yhe"/>
                                     <constraint firstAttribute="centerX" secondItem="mJ5-96-mc0" secondAttribute="centerX" id="b4G-ci-OqF"/>
                                     <constraint firstAttribute="centerY" secondItem="mJ5-96-mc0" secondAttribute="centerY" constant="22.5" id="bnc-pe-8H3"/>
                                     <constraint firstAttribute="trailing" secondItem="HmF-Su-dbo" secondAttribute="trailing" id="w44-SA-ygr"/>
@@ -129,7 +129,7 @@
                             <outlet property="delegate" destination="cWB-9A-5b8" id="67d-V3-zn6"/>
                         </connections>
                     </collectionView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="poG-zG-z4W">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="gLf-zZ-Ie2">
                             <connections>

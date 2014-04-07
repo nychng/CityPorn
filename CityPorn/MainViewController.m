@@ -11,7 +11,7 @@
 #import "ImgurCell.h"
 #import "ImageItem.h"
 #import "NetworkChecker.h"
-
+#import <iAd/iAD.h>
 
 @interface MainViewController ()
 @property (nonatomic, strong) NSMutableArray *imageArray;
@@ -41,6 +41,7 @@
     [super viewDidLoad];
     self.page = 1;
     [self loadImages];
+    self.canDisplayBannerAds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,14 +49,17 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)setStyle
-{
-    self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Collection View
-
-
 
 - (void)loadImages
 {

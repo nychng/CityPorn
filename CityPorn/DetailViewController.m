@@ -52,9 +52,7 @@
     [super viewWillAppear:animated];
     UICollectionViewFlowLayout *layout = (id) self.collectionView.collectionViewLayout;
     layout.itemSize = self.collectionView.frame.size;
-    NSLog(@"%f", self.collectionView.frame.size.height);
     [self loadSelectedImage];
-
 }
 
 - (void)viewWillLayoutSubviews {
