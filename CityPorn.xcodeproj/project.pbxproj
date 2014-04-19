@@ -20,7 +20,6 @@
 		2D4AED4918A49B2F00AB62B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AED4718A49B2F00AB62B1 /* InfoPlist.strings */; };
 		2D4AED4B18A49B2F00AB62B1 /* CityPornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4AED4A18A49B2F00AB62B1 /* CityPornTests.m */; };
 		2D4AED5818A4A1B900AB62B1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4AED5718A4A1B900AB62B1 /* ImageIO.framework */; };
-		2D53B3C918E2BFE900D1FD09 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */; };
 		2D53B3CB18E2C7A700D1FD09 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D53B3CA18E2C7A700D1FD09 /* iAd.framework */; };
 		2D72A6E118ED488E0044C12D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D72A6E018ED488E0044C12D /* Main_iPad.storyboard */; };
 		2D72A6E418ED48B10044C12D /* ImgurCellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D72A6E318ED48B10044C12D /* ImgurCellDetail.m */; };
@@ -28,12 +27,13 @@
 		2D72A6EA18ED48D10044C12D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D72A6E818ED48D10044C12D /* DetailViewController.m */; };
 		2D72A6F018ED4B160044C12D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D72A6EF18ED4B160044C12D /* Images.xcassets */; };
 		2D9C618818A8E23600B31A69 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C618718A8E23600B31A69 /* ImageItem.m */; };
-		2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */; };
 		2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */; };
-		2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624418AA0F4800B31A69 /* Security.framework */; };
 		2DACD23918AB2BDE00441BDA /* ImgurCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DACD23818AB2BDE00441BDA /* ImgurCell.m */; };
 		2DCA4D2118BC97C900FDA799 /* NetworkChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA4D2018BC97C900FDA799 /* NetworkChecker.m */; };
 		2DCA4D2518BC97EB00FDA799 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA4D2418BC97EB00FDA799 /* Reachability.m */; };
+		2DEA104F19026F6D00A6566C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */; };
+		2DEA105019026F7200A6566C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C624418AA0F4800B31A69 /* Security.framework */; };
+		882F033347C74EE2A7B490F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC8AC72B66A46E8939D650E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DC8AC72B66A46E8939D650E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4AED1918A49B2F00AB62B1 /* CityPorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityPorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4AED1C18A49B2F00AB62B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D4AED1E18A49B2F00AB62B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,7 +66,6 @@
 		2D4AED4A18A49B2F00AB62B1 /* CityPornTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityPornTests.m; sourceTree = "<group>"; };
 		2D4AED5418A4A09300AB62B1 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2D4AED5718A4A1B900AB62B1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		2D53B3CA18E2C7A700D1FD09 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2D72A6E018ED488E0044C12D /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		2D72A6E218ED48B10044C12D /* ImgurCellDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurCellDetail.h; sourceTree = "<group>"; };
@@ -86,6 +86,7 @@
 		2DCA4D2018BC97C900FDA799 /* NetworkChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkChecker.m; sourceTree = "<group>"; };
 		2DCA4D2318BC97EB00FDA799 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		2DCA4D2418BC97EB00FDA799 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E3EF660CB7D44024B5BC3DEA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,15 +94,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DEA105019026F7200A6566C /* Security.framework in Frameworks */,
+				2DEA104F19026F6D00A6566C /* SystemConfiguration.framework in Frameworks */,
 				2D53B3CB18E2C7A700D1FD09 /* iAd.framework in Frameworks */,
-				2D9C624518AA0F4800B31A69 /* Security.framework in Frameworks */,
 				2D9C624318AA0F3A00B31A69 /* CFNetwork.framework in Frameworks */,
-				2D9C618E18A9D2BE00B31A69 /* SystemConfiguration.framework in Frameworks */,
 				2D4AED5818A4A1B900AB62B1 /* ImageIO.framework in Frameworks */,
 				2D4AED1F18A49B2F00AB62B1 /* CoreGraphics.framework in Frameworks */,
 				2D4AED2118A49B2F00AB62B1 /* UIKit.framework in Frameworks */,
-				2D53B3C918E2BFE900D1FD09 /* SDWebImage.framework in Frameworks */,
 				2D4AED1D18A49B2F00AB62B1 /* Foundation.framework in Frameworks */,
+				882F033347C74EE2A7B490F1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +126,7 @@
 				2D4AED4418A49B2F00AB62B1 /* CityPornTests */,
 				2D4AED1B18A49B2F00AB62B1 /* Frameworks */,
 				2D4AED1A18A49B2F00AB62B1 /* Products */,
+				E3EF660CB7D44024B5BC3DEA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				2D53B3CA18E2C7A700D1FD09 /* iAd.framework */,
-				2D53B3C818E2BFE900D1FD09 /* SDWebImage.framework */,
 				2D9C624418AA0F4800B31A69 /* Security.framework */,
 				2D9C624218AA0F3A00B31A69 /* CFNetwork.framework */,
 				2D9C618D18A9D2BE00B31A69 /* SystemConfiguration.framework */,
@@ -150,6 +151,7 @@
 				2D4AED1E18A49B2F00AB62B1 /* CoreGraphics.framework */,
 				2D4AED2018A49B2F00AB62B1 /* UIKit.framework */,
 				2D4AED3E18A49B2F00AB62B1 /* XCTest.framework */,
+				0DC8AC72B66A46E8939D650E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D4AED4E18A49B2F00AB62B1 /* Build configuration list for PBXNativeTarget "CityPorn" */;
 			buildPhases = (
+				BCD76C18A4A243BD8096EC2B /* Check Pods Manifest.lock */,
 				2D4AED1518A49B2F00AB62B1 /* Sources */,
 				2D4AED1618A49B2F00AB62B1 /* Frameworks */,
 				2D4AED1718A49B2F00AB62B1 /* Resources */,
+				D4124A083A3142439680C7E0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -346,6 +350,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BCD76C18A4A243BD8096EC2B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D4124A083A3142439680C7E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2D4AED1518A49B2F00AB62B1 /* Sources */ = {
@@ -477,6 +514,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -484,24 +522,19 @@
 		};
 		2D4AED4F18A49B2F00AB62B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3EF660CB7D44024B5BC3DEA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/nai/Developer/CityPorn,
-					"$(PROJECT_DIR)",
-					/Users/nai/Developer/Scenery,
-					/Users/nai/Downloads,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CityPorn/CityPorn-Prefix.pch";
 				INFOPLIST_FILE = "CityPorn/CityPorn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -511,24 +544,19 @@
 		};
 		2D4AED5018A49B2F00AB62B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3EF660CB7D44024B5BC3DEA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/nai/Developer/CityPorn,
-					"$(PROJECT_DIR)",
-					/Users/nai/Developer/Scenery,
-					/Users/nai/Downloads,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CityPorn/CityPorn-Prefix.pch";
 				INFOPLIST_FILE = "CityPorn/CityPorn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
