@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImgurCellDetail : UICollectionViewCell
+@interface ImgurCellDetail : UICollectionViewCell <UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *title;
-
-@property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSURL *url;
+@property (nonatomic, strong) NSURL *commentURL;
 
 - (void)setupActivityIndicator;
 @end

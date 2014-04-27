@@ -1,8 +1,8 @@
 //
-//  Image.m
-//  CityPorn
+//  ImageItem.m
+//  Scenery
 //
-//  Created by Nai Chng on 10/2/14.
+//  Created by Nai Chng on 17/2/14.
 //  Copyright (c) 2014 NYC. All rights reserved.
 //
 

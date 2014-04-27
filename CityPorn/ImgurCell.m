@@ -1,13 +1,12 @@
 //
-//  ImgurCell.m
-//  CityPorn
+//  ImageCell.m
+//  Scenery
 //
-//  Created by Nai Chng on 12/2/14.
+//  Created by Nai Chng on 17/2/14.
 //  Copyright (c) 2014 NYC. All rights reserved.
 //
 
 #import "ImgurCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ImgurCell
 

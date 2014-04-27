@@ -12,6 +12,8 @@
 #import "ImageItem.h"
 #import "NetworkChecker.h"
 #import <iAd/iAD.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface MainViewController ()
 @property (nonatomic, strong) NSMutableArray *imageArray;
@@ -42,6 +44,14 @@
     self.page = 1;
     [self loadImages];
     self.canDisplayBannerAds = YES;
+    
+    // transparent navigation background
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    // nav bar color
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,12 +94,11 @@
 - (void)populateImageArray:(NSMutableOrderedSet *)data
 {
     for (NSDictionary *obj in data) {
-        NSString *title = [obj objectForKey:@"title"];
         NSString *stringURL = [obj objectForKey:@"link"];
-        NSURL *url = [NSURL URLWithString:stringURL];
         ImageItem *image = [[ImageItem alloc] init];
-        image.title = title;
-        image.url = url;
+        image.title = [obj objectForKey:@"title"];
+        image.url = [NSURL URLWithString:stringURL];
+        image.commentURL = [obj objectForKey:@"reddit_comments"];
         [self.imageArray addObject:image];
     }
 }

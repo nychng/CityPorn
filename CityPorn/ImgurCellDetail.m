@@ -29,7 +29,41 @@
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
     self.activityIndicator.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-    [self.imageView addSubview:self.activityIndicator];
+    [self.scrollView addSubview:self.activityIndicator];
+}
+
+- (void)awakeFromNib {
+    self.scrollView.minimumZoomScale = 1;
+    self.scrollView.maximumZoomScale = 3.0;
+    self.scrollView.delegate = self;
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    [self centerScrollViewContents];
+}
+
+- (void)centerScrollViewContents {
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect contentsFrame = self.imageView.frame;
+    
+    if (contentsFrame.size.width < boundsSize.width) {
+        contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
+    } else {
+        contentsFrame.origin.x = 0.0f;
+    }
+    
+    if (contentsFrame.size.height < boundsSize.height) {
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
+    } else {
+        contentsFrame.origin.y = 0.0f;
+    }
+    
+    self.imageView.frame = contentsFrame;
 }
 
 @end
