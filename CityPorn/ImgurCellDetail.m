@@ -7,8 +7,17 @@
 //
 
 #import "ImgurCellDetail.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @implementation ImgurCellDetail
+
+- (UIActivityIndicatorView *)activityIndicator {
+    if (!_activityIndicator) {
+        _activityIndicator = [[UIActivityIndicatorView alloc] init];
+    }
+    return _activityIndicator;
+}
 
 - (void)prepareForReuse
 {

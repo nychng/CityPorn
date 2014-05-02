@@ -98,12 +98,6 @@
                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2x4-HC-nMf">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NYv-mI-7dc">
-                                                    <rect key="frame" x="366" y="493" width="37" height="37"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </activityIndicatorView>
-                                            </subviews>
                                         </scrollView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -116,7 +110,6 @@
                                     <constraint firstAttribute="trailing" secondItem="2x4-HC-nMf" secondAttribute="trailing" id="djD-9g-x9F"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="activityIndicator" destination="NYv-mI-7dc" id="6c0-TV-2DG"/>
                                     <outlet property="scrollView" destination="2x4-HC-nMf" id="pdn-OX-VWu"/>
                                 </connections>
                             </collectionViewCell>

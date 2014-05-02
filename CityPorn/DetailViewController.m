@@ -112,11 +112,6 @@
     cell.url = image.url;
     cell.commentURL = image.commentURL;
     
-    if (cell.activityIndicator) {
-        [cell.activityIndicator removeFromSuperview];
-    }
-    [cell setupActivityIndicator];
-    
     cell.imageView = [[UIImageView alloc] init];
 
     if ([NetworkChecker hasConnectivity]) {
@@ -125,7 +120,8 @@
                   placeholderImage:nil
                            options:SDWebImageProgressiveDownload
                           progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                              [weakCell.activityIndicator startAnimating];
+                              [weakCell setupActivityIndicator];
+                              //[weakCell.activityIndicator startAnimating];
                           }
                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                              [weakCell.activityIndicator stopAnimating];
@@ -293,7 +289,7 @@ static NSString * const kPageLink = @"https://itunes.apple.com/us/app/urban-city
 - (void)sendEmail {
     if ([MFMailComposeViewController canSendMail]) {
         
-        NSString *emailTitle = @"Room Idea";
+        NSString *emailTitle = @"Urban City Wallpaper";
         NSString *bodyString = @"";
         NSString *messageBody = [bodyString stringByAppendingString:self.signatureString];
         

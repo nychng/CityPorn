@@ -11,7 +11,7 @@
 @interface ImgurCellDetail : UICollectionViewCell <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) NSURL *url;
 @property (nonatomic, strong) NSURL *commentURL;

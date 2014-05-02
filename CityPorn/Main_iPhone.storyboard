@@ -99,10 +99,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </scrollView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DRN-KQ-5wI">
-                                            <rect key="frame" x="141" y="266" width="37" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -110,13 +106,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yVM-Ky-aoQ" secondAttribute="trailing" id="1bM-tK-ozt"/>
                                     <constraint firstItem="yVM-Ky-aoQ" firstAttribute="leading" secondItem="2mk-BP-cLx" secondAttribute="leading" id="F9b-hJ-Dbj"/>
-                                    <constraint firstAttribute="centerY" secondItem="DRN-KQ-5wI" secondAttribute="centerY" id="OFf-M9-q7c"/>
-                                    <constraint firstAttribute="centerX" secondItem="DRN-KQ-5wI" secondAttribute="centerX" id="TkK-aX-Pcp"/>
                                     <constraint firstAttribute="bottom" secondItem="yVM-Ky-aoQ" secondAttribute="bottom" id="akV-wK-Tpw"/>
                                     <constraint firstItem="yVM-Ky-aoQ" firstAttribute="top" secondItem="2mk-BP-cLx" secondAttribute="top" id="b07-ya-CnH"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="activityIndicator" destination="DRN-KQ-5wI" id="oy5-tF-tym"/>
                                     <outlet property="scrollView" destination="yVM-Ky-aoQ" id="FYc-iI-92i"/>
                                 </connections>
                             </collectionViewCell>
